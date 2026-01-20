@@ -17,3 +17,38 @@ Concepts Practiced:
 - switch/case/default
 - break
 */
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main () {
+  int selection;
+
+  cout << "Enter your choice from the menu below:\n";
+  cout << "1) Rock\n";
+  cout << "2) Paper\n";
+  cout << "3) Scissors\n";
+  cin >> selection;
+
+  switch (selection) {
+    case 1:
+    
+      cout << "You selected Rock.\n";
+      break;
+    case 2:
+
+      cout << "You selected Paper.\n";
+      break;
+
+    case 3:
+      cout << "You selected Scissors.\n";
+      break;
+
+    default:
+      cout << "Invalid selection.\n";
+      break;
+  }
+
+  return 0;
+}

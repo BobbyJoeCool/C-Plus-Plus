@@ -15,3 +15,21 @@ Concepts Practiced:
 - if/else
 - modulo operator
 */
+
+#include <iostream>
+using namespace std;
+
+int main () {
+    int input;
+
+    cout << "Enter an Integer: ";
+    cin >> input;
+
+    if (input % 2 == 0)
+    {
+        cout << input << " is even.\n";
+    } else {
+        cout << input << " is odd.\n";
+    }
+    
+}
