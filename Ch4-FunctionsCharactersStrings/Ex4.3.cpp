@@ -16,3 +16,27 @@ Concepts Practiced:
 - char input
 - std::isalpha, std::isdigit, std::isspace
 */
+
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+int main () {
+  char input;
+  cout << "Enter a character: ";
+  cin.get(input);
+
+  if (isalpha(input)) {
+    cout << "The character is a letter.\n";
+  }
+  else if (isdigit(input)) {
+    cout << "The character is a number.\n";
+  }
+  else if (isspace(input)) {
+    cout << "The character is a whitespace.\n";
+  }
+  else {
+    cout << "The character is other.\n";
+  }
+  return 0;
+}

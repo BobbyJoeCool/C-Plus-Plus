@@ -17,3 +17,20 @@ Concepts Practiced:
 - .length()
 - indexing with [ ]
 */
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main () {
+  string word;
+  cout << "Enter a word: ";
+  cin >> word;
+
+  cout << "The word you entered is " << word << ".\n";
+  cout << "That word has " << word.length() << " characters.\n";
+  cout << "The first character is: " << word[0] << "\n";
+  cout << "The last character is: " << word[word.length() - 1] << "\n";
+
+  return 0;
+}

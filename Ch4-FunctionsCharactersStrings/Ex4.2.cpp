@@ -16,3 +16,23 @@ Concepts Practiced:
 - arithmetic expressions
 - constants
 */
+
+#include <iostream>
+using namespace std;
+
+int main () {
+  double radius;
+  const double PI = 3.141592653589793;
+
+  cout << "Enter a radius: ";
+  cin >> radius;
+
+  double circumference = 2 * PI * radius;
+  double area = PI * radius * radius;
+
+  cout << "For a circle with a radius of: " << radius << ":\n";
+  cout << "Circumference = " << circumference << "\n";
+  cout << "Area = " << area << "\n";
+
+  return 0;
+}
