@@ -14,3 +14,26 @@ Concepts Practiced:
 - sentinel value
 - accumulators
 */
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    int sum = 0;
+
+    cout << "Enter an integer: ";
+    cin >> n;
+
+    while (n != 0)
+    {
+        sum += n;
+        cout << "Enter an integer: ";
+        cin >> n;
+    }
+
+    cout << "Thank you.  The sum of all the numbers you entered is: " << sum << ".\n";
+
+    return 0;
+}

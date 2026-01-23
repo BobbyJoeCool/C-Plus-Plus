@@ -13,3 +13,17 @@ Concepts Practiced:
 - while loop or do-while loop
 - validation logic
 */
+
+#include <iostream>
+using namespace std;
+
+int main () {
+    int n;
+    do {
+        cout << "Enter an integer: ";
+        cin >> n;
+    } while (n < 1 || n > 10);
+    
+    cout << "Thank you.\n";
+    return 0;
+}
