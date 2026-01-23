@@ -13,3 +13,19 @@ Concepts Practiced:
 - return values
 - calling functions
 */
+
+#include <iostream>
+using namespace std;
+
+int square (int n) {
+    return n * n;
+}
+
+int main () {
+    int n;
+    cout << "Enter an integer: ";
+    cin >> n;
+    cout << "The square of that number is " << square(n) << ".\n";
+
+    return 0;
+}
