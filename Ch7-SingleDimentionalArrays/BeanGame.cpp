@@ -61,10 +61,104 @@ Create a file named BeanGame.cpp and implement the program.
 */
 
 #include <iostream>
+#include <string>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
+
+string simulateBallPath(int numberOfSlots);
+int getSlotFromPath(string& path);
+void displayHistogram(vector<int>& slots);
 
 int main()
 {
-  // TODO: Implement the program here
+  srand(static_cast<unsigned>(time(nullptr))); // seed rand() once
+
+  cout << "How many balls do you want to drop: ";
+  int balls;
+  cin >> balls;
+
+  cout << "How many slots will there be at the end: ";
+  int numberOfSlots;
+  cin >> numberOfSlots;
+  vector<int> slots(static_cast<size_t>(numberOfSlots), 0);
+
+  for (int i = 1; i <= balls; i++)
+  {
+    string path = simulateBallPath(numberOfSlots);
+    cout << "Path of Ball " << i << ": " << path << endl;
+    int slotNumber = getSlotFromPath(path);
+    slots[static_cast<size_t>(slotNumber)]++;
+  }
+
+  displayHistogram(slots);
+
   return 0;
+}
+
+string simulateBallPath(int numberOfSlots)
+{
+  string path = "";
+  int direction;
+  for (int turns = 1; turns < numberOfSlots; turns++)
+  {
+    direction = rand() %2;
+    switch (direction)
+    {
+          case 0: 
+            path += "L";
+            break;
+          case 1:
+            path += "R";
+            break;
+      }
+  }
+  return path;
+}
+
+int getSlotFromPath(string& path)
+{
+  int slot = 0;
+  // Count the number of right turns to find the slot it lands in.
+  for (size_t i = 0; i < path.length(); i++)
+  {
+    if (path[i] == 'R')
+    {
+      slot++;
+    }
+  }
+  return slot;
+}
+
+void displayHistogram(vector<int>& slots) 
+{
+  cout << endl;
+  int slotMax = 0;
+  // for loop finds the slot with the most balls.
+  for (size_t i = 0; i < slots.size(); i++)
+  {
+    if (slots[i] > slotMax)
+    {
+      slotMax = slots[i];
+    }
+  }
+
+  for (int row = slotMax; row > 0; row--)
+  {
+    for (size_t slot = 0; slot < slots.size(); slot++)
+    {
+      if (slots[slot] >= row)
+      {
+        cout << "| * ";
+      }
+      else
+      {
+        cout << "|   ";
+      }
+    }
+    cout << "|\n";
+  }
+  cout << string(slots.size() * 4 + 1, '-') << endl;
+  return;
 }

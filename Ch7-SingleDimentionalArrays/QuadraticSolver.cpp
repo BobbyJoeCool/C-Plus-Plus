@@ -43,11 +43,69 @@ RULES:
 */
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
+int solveQuadratic(const double eqn[], double roots[]);
 
 int main()
 {
-    // TODO: Implement the program here
+    cout << "ax^2 + bx + c = 0.  Quadratic Equation Solver!\n";
+    cout << "Enter values for a, b, and c:\n";
+    cout << "a = ";
+    double a;
+    cin >> a;
+
+    if (a == 0)
+    {
+        cout << "If 'a' is 0, it is a linear equation.";
+        return 0;
+    }
+
+    cout << "b = ";
+    double b;
+    cin >> b;
+    cout << "c = ";
+    double c;
+    cin >> c;
+
+    double eqn[] = {a, b, c};
+    double roots[] = {0,0};
+
+    int rootCount = solveQuadratic(eqn, roots);
+
+    cout << "Your equation has " << rootCount << " real roots.\n";
+
+    switch (rootCount)
+    {
+    case 1:
+        cout << "The root is " << roots[0] << endl;
+        break;
+    case 2:
+        cout << "Those roots are " << roots[0] << " and " << roots[1] << endl;
+        break;
+    case 0:
+        cout << "No real roots.";
+    }
     return 0;
+}
+
+int solveQuadratic(const double eqn[], double roots[])
+{
+    double a = eqn[0];
+    double b = eqn[1];
+    double c = eqn[2];
+
+    double discriminant = (b * b) - (4 * a * c);
+
+    if (discriminant > 0) {
+        roots[0] = (-b + sqrt(discriminant)) / (2 * a);
+        roots[1] = (-b - sqrt(discriminant)) / (2 * a);
+        return 2;
+    } else if (discriminant == 0) {
+        roots[0] = -b / (2*a);
+        return 1;
+    } else {
+        return 0;
+    }
 }
