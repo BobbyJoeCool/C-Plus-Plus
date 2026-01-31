@@ -44,7 +44,7 @@ using namespace std;
 
 void toggleLockersForStudent(int studentNumber, bool lockers[], int lockerLength);
 
-    int main()
+int main()
 {
     bool lockers[100] = {false};
 
